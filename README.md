@@ -21,10 +21,11 @@ These require implementation of several data structures:
 The project also requires efficiency and a time complexity analysis for each problem.
 
 ## How to run the project
-The project contains 3 files for each problem:
+The project contains 2 files for each problem:
 * The python code
-* A pdf containing the instructions
 * An MD file containing a description of each implementation
+
+There is also an MD containing the instructions.
 
 Simply run python <file-name.py> to test the solution.
 

@@ -12,5 +12,17 @@ def find_files(suffix, path):
     return file_list
 
 # Print results of function, with suffix and path as input
+# Test Case 1
+print('The paths for .c files are:')
 for item in find_files('.c', os.path.join(os.path.abspath(os.getcwd()), 'testdir')):
+    print(item)
+
+# Test Case 2
+print('The paths for .h files are:')
+for item in find_files('.h', os.path.join(os.path.abspath(os.getcwd()), 'testdir')):
+    print(item)
+
+# Test Case 2
+print('The paths for .zip files are:')
+for item in find_files('.zip', os.path.join(os.path.abspath(os.getcwd()), 'testdir')):
     print(item)

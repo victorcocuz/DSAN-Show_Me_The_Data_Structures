@@ -139,4 +139,5 @@ our_cache.set(6, '6')
 
 our_cache.get(3)      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
-# print(our_cache.recently_used)
+# Check cache
+print(our_cache.recently_used)

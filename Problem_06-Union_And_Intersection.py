@@ -142,3 +142,22 @@ for i in element_2:
 print('Second List:')
 print(f'Union: {union(linked_list_3, linked_list_4)}')
 print(f'Intersection: {intersection(linked_list_3, linked_list_4)}')
+
+
+# Test case 3
+
+linked_list_3 = LinkedList()
+linked_list_4 = LinkedList()
+
+element_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+element_2 = [2, 4, 6, 8, 10, 12, 14]
+
+for i in element_1:
+    linked_list_3.prepend(i)
+
+for i in element_2:
+    linked_list_4.prepend(i)
+
+print('Third List:')
+print(f'Union: {union(linked_list_3, linked_list_4)}')
+print(f'Intersection: {intersection(linked_list_3, linked_list_4)}')

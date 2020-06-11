@@ -1,11 +1,3 @@
-'''
-The cache will be implemented so that:
-- A dictionary will hold the key-value pairs
-- A linked list will hold the count, using the same keys as in the dictionary
-- The linked list will automatically rearrange its nodes with each new element added (set) or visited (get), to determine its LRU element
-- This will make it very easy to remove the LRU element, simply by removing the head of the linked list every time the cache size reaches capacity
-'''
-
 class Node:
 # Create a Node class to count the use of each key
     def __init__(self, key):

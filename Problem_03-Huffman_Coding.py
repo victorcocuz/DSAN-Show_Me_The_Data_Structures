@@ -160,7 +160,7 @@ def huffman_encoding(data):
     for char in data:
         chars_freq[char] = chars_freq.get(char, 0) + 1
 
-    # Add all chars from dictionary to a queue
+    # Add all chars from dictionary to a priority queue
     queue = PriorityQueue()
     for char in chars_freq:
         node = Node()

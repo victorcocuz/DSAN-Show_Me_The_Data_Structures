@@ -114,6 +114,7 @@ class LRU_Cache(object):
         self.num_cached -= 1
         del self.dict[self.recently_used.remove()]
 
+
 # Test the cache implementation
 our_cache = LRU_Cache(5)
 
@@ -130,6 +131,9 @@ our_cache.set(5, '5')
 our_cache.set(6, '6')
 
 our_cache.get(3)      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+
+# Test edge case
+our_cache.get(None)  # returns -1
 
 # Check cache
 print(our_cache.recently_used)

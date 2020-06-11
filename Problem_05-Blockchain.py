@@ -55,23 +55,23 @@ class LinkedList:
 
 # Test case 1
 list = LinkedList()
-list.append("This is the first block")
-list.append("This is the second block")
-list.append("This is the third block")
+list.append("This is the first block")  # Prints data + time stamp
+list.append("This is the second block")  # Prints data + time stamp
+list.append("This is the third block")  # Prints data + time stamp
 print(list)
 
 # Test case 2
 list2 = LinkedList()
-list2.append("This is the another block")
-list2.append("This is the second another block")
-list2.append("This is the third anotherblock")
+list2.append("This is the another block")  # Prints data + time stamp
+list2.append("This is the second another block")  # Prints data + time stamp
+list2.append("This is the third anotherblock")  # Prints data + time stamp
 print(list2)
 
 # Test case 3
 list3 = LinkedList()
-list3.append("Again")
-list3.append("And again")
-list3.append("And yet again")
+list3.append("")  # Empty data, but adds timestamp
+list3.append("")  # Empty data, but adds timestamp
+list3.append("")  # Empty data, but adds timestamp
 print(list3)
 
 

@@ -141,7 +141,7 @@ for i in element_2:
 
 print('Second List:')
 print(f'Union: {union(linked_list_3, linked_list_4)}')
-print(f'Intersection: {intersection(linked_list_3, linked_list_4)}')
+print(f'Intersection: {intersection(linked_list_3, linked_list_4)}') # This has no intersection
 
 
 # Test case 3

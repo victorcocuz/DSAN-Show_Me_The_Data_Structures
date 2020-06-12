@@ -10,4 +10,4 @@ A recursive function that:
 ## Time and space Complexity:
 The time complexity is depending on the number of files in each folder and number of folders, so **O(mn)**
 
-Space complexity is also **O(1)**, as there is nothing stored
+Space complexity is also **O(mn)**, due to recursion stack.

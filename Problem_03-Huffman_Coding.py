@@ -56,6 +56,13 @@ class Node:
         letters = {}
         binary = []
         code = []
+
+        # Edge case
+        if not (node.has_left() and node.has_right()):
+            letters[node.value] = '-1'
+            return letters
+
+        # Default
         def traverse(node):
             if node:
                 if node.has_left():
@@ -79,6 +86,13 @@ class Node:
     def decode_message(self, data, node):
         initial_node = node
         message = ''
+
+        # Edge case
+        if data == '-1':
+            message += node.get_value()
+            return message
+
+        # Default
         for item in data:
             if item == '0':
                 node = node.get_left()
@@ -151,7 +165,7 @@ class PriorityQueue:
 # Encode Algorithm
 def huffman_encoding(data):
     # Edge case
-    if data is None:
+    if len(data) == 0:
         print('Cannot encode empty string')
         return None
 
@@ -177,6 +191,7 @@ def huffman_encoding(data):
     # Return all letters as a binary list
     tree = queue.dequeue()
     letters = Node().get_letter_codes(tree)
+
     code = ''
     for char in data:
         code += letters[char]
@@ -191,59 +206,22 @@ def huffman_decoding(data, tree):
 if __name__ == "__main__":
     codes = {}
 
-    # Test Case 1
-    a_great_sentence = "The bird is the word"
+    def test_function(sentence):
+        if huffman_encoding(sentence) is not None:
+            encoded_data, tree = huffman_encoding(sentence)
 
-    print("The size of the data is: {}\n".format(
-        sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
+            print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+            print("The content of the encoded data is: {}\n".format(encoded_data))
 
-    encoded_data, tree = huffman_encoding(a_great_sentence)
+            decoded_data = huffman_decoding(encoded_data, tree)
 
-    print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
+            print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+            print("The content of the encoded data is: {}\n".format(decoded_data))
 
-    decoded_data = huffman_decoding(encoded_data, tree)
+    # Edge Cases
+    test_function('')
+    test_function('A')
 
-    print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
-
-    # Test Case 2
-    second_sentence = "This is a sentance"
-
-    print("The size of the data is: {}\n".format(
-        sys.getsizeof(second_sentence)))
-    print("The content of the data is: {}\n".format(second_sentence))
-
-    encoded_data, tree = huffman_encoding(second_sentence)
-
-    print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
-
-    decoded_data = huffman_decoding(encoded_data, tree)
-
-    print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
-
-    # Test Case 3
-    third_sentence = "The world is your oyster"
-
-    print("The size of the data is: {}\n".format(
-        sys.getsizeof(third_sentence)))
-    print("The content of the data is: {}\n".format(third_sentence))
-
-    encoded_data, tree = huffman_encoding(third_sentence)
-
-    print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
-
-    decoded_data = huffman_decoding(encoded_data, tree)
-
-    print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+    # Default
+    test_function('A great sentance')
+    test_function('This is a sentance')

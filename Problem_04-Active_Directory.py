@@ -31,10 +31,12 @@ def is_user_in_group(user, group):
     """
     # for group in group.get_groups:
     #     if user in group:
-    if user == group.get_name() or user in group.get_users():
+    if user in group.get_users():
         return True
     for group in group.get_groups():
-        return is_user_in_group(user, group)
+        if is_user_in_group(user, group):
+            return True
+            
     return False
 
 # Assign groups and users

@@ -7,6 +7,7 @@ class Block:
         self.timestamp = datetime.datetime.now(datetime.timezone.utc)
         self.data = data
         self.previous_hash = previous_hash
+        self.previous = None
         self.hash = self.calc_hash()
 
     def calc_hash(self):
@@ -31,11 +32,12 @@ class LinkedList:
     # Add block to block chain
     def append(self, data):
         if self.is_empty():
-            block = Block(data, 0)
-            self.tail = block
-        
-        previous = self.tail
-        self.tail = Block(data, previous)
+            self.tail = Block(data, 0)
+        else:
+            previous = self.tail
+            self.tail = Block(data, previous.hash)
+            self.tail.previous = previous
+
         self.num_elements += 1
 
     # List all blocks by data and timestamp
@@ -44,9 +46,9 @@ class LinkedList:
             return "The list is empty"
         s = ''
         current = self.tail
-        while current.previous_hash:
-            s += f'Block data: {current.data}, timestamp: {current.timestamp}\n'
-            current = current.previous_hash
+        while current:
+            s += f'Block data: {current.data}, timestamp: {current.timestamp}, hash: {current.hash}\n'
+            current = current.previous
         return s
 
 
